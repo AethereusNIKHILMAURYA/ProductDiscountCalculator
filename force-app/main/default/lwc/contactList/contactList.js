@@ -17,7 +17,7 @@ export default class ContactList extends NavigationMixin(LightningElement) {
         this.getContacts();
     }
 
-    @wire(getContacts, {pageNumber: '$pageNumber', searchTerm: '$searchTerm'})
+    @wire(getContacts, { pageNumber: '$pageNumber', searchTerm: '$searchTerm' })
     wiredContacts({ error, data }) {
         if (data) {
             this.contacts = data;
@@ -26,9 +26,10 @@ export default class ContactList extends NavigationMixin(LightningElement) {
             this.disableNextButton = data.length < 10;
             this.disableLastButton = data.length < 10;
         } else if (error) {
-            console.log(error);
+            console.error(error);
         }
     }
+
 
     handleFirst() {
         this.pageNumber = 1;
@@ -61,7 +62,7 @@ export default class ContactList extends NavigationMixin(LightningElement) {
     }
 
     getContacts() {
-        getContacts({pageNumber: this.pageNumber, searchTerm: this.searchTerm})
+        getContacts({ pageNumber: this.pageNumber, searchTerm: this.searchTerm })
             .then(result => {
                 this.contacts = result;
                 this.disableFirstButton = this.pageNumber === 1;
