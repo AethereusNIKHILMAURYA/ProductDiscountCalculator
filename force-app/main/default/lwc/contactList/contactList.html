@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Contact List">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" label="Search Contact" onchange={handleSearch}></lightning-input>
+        </div>
+        <template if:true={contacts}>
+            <lightning-layout>
+                <lightning-layout-item size="12">
+                    <template for:each={contacts} for:item="contact">
+                        <div key={contact.Id} class="slds-box slds-box_x-small slds-text-align_left slds-p-around_small slds-m-around_small">
+                            <p>{contact.Name}</p>
+                            <p>{contact.Email}</p>
+                            <p>{contact.Phone}</p>
+                            <lightning-button label="View Details" onclick={handleViewDetails} data-id={contact.Id}></lightning-button>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+        <div class="slds-m-around_medium">
+            <lightning-button-group>
+                <lightning-button label="First" disabled={disableFirstButton} onclick={handleFirst}></lightning-button>
+                <lightning-button label="Previous" disabled={disablePreviousButton} onclick={handlePrevious}></lightning-button>
+                <lightning-button label="Next" disabled={disableNextButton} onclick={handleNext}></lightning-button>
+                <lightning-button label="Last" disabled={disableLastButton} onclick={handleLast}></lightning-button>
+            </lightning-button-group>
+        </div>
+    </lightning-card>
+</template>

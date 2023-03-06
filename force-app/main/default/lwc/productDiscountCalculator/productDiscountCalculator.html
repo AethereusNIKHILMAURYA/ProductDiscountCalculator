@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Product Discount Calculator">
+        <div>
+            <div class="slds-col">
+                <lightning-input type="number" label="Product Price" onchange={handlePriceChange}></lightning-input>
+                <lightning-input type="number" label="Discount Percentage" onchange={handleDiscountChange}></lightning-input>
+            </div>
+            <div class="slds-col">
+                <lightning-button label="Calculate Discount" onclick={calculateDiscount}></lightning-button>
+            </div>
+        <div> Discounted Price: {discountedPrice}</div>
+        </div>
+    </lightning-card>
+</template>
