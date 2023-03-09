@@ -7,7 +7,7 @@
             <lightning-layout>
                 <lightning-layout-item size="12">
                     <template for:each={contacts} for:item="contact">
-                        <div key={contact.Id} class="slds-box slds-box_x-small slds-text-align_left slds-p-around_small slds-m-around_small">
+                        <div key={contact.Id} >
                             <p>{contact.Name}</p>
                             <p>{contact.Email}</p>
                             <p>{contact.Phone}</p>

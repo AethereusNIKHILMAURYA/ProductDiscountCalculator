@@ -1,0 +1,33 @@
+<template>
+    <template if:true={parentChildList}>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Child Objects</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={parentChildList} for:item="parentObj">
+                    <tr key={parentObj.Id}>
+                        <td>{parentObj.Name}</td>
+                        <td>{parentObj.Description__c}</td>
+                        <td>{parentObj.Date__c}</td>
+                        <td>
+                            <ul>
+                                <template for:each={parentObj.ChildObjects__r} for:item="childObj">
+                                    <li key={childObj.Id}>
+                                        <p>{childObj.Name}</p>
+                                        <p>{childObj.Description__c}</p>
+                                    </li>
+                                </template>
+                            </ul>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+</template>
